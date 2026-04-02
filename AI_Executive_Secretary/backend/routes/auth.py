@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from models.database import get_db
-from models.orm_models import User
-from models.schemas import UserCreate, UserOut, TokenOut
+from AI_Executive_Secretary.backend.models.database import get_db
+from AI_Executive_Secretary.backend.models.orm_models import User
+from AI_Executive_Secretary.backend.models.schemas import UserCreate, UserOut, TokenOut
 from passlib.context import CryptContext
 from jose import jwt
 from dotenv import load_dotenv

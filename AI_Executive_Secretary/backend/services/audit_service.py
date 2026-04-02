@@ -1,6 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import Column, Integer, String, Text, DateTime
-from models.database import Base
+from AI_Executive_Secretary.backend.models.database import Base
 from datetime import datetime
 
 class AuditLog(Base):

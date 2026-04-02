@@ -1,14 +1,14 @@
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from models.database import get_db
-from models.orm_models import Task
-from models.schemas import TaskOut, TaskUpdate
-from agents.scheduler_agent import run_scheduler_agent, suggest_alternate_slots
-from agents.notification_agent import run_notification_agent
+from AI_Executive_Secretary.backend.models.database import get_db
+from AI_Executive_Secretary.backend.models.orm_models import Task
+from AI_Executive_Secretary.backend.models.schemas import TaskOut, TaskUpdate
+from AI_Executive_Secretary.backend.agents.scheduler_agent import run_scheduler_agent, suggest_alternate_slots
+from AI_Executive_Secretary.backend.agents.notification_agent import run_notification_agent
 from typing import List
-from routes.auth import get_current_user
-from services.audit_service import log_action
+from AI_Executive_Secretary.backend.routes.auth import get_current_user
+from AI_Executive_Secretary.backend.services.audit_service import log_action
 
 router = APIRouter()
 
@@ -91,7 +91,7 @@ async def get_task_detail(task_id: int, db: AsyncSession = Depends(get_db)):
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
 
-    from models.orm_models import Email, Schedule, Notification
+    from AI_Executive_Secretary.backend.models.orm_models import Email, Schedule, Notification
     email_result = await db.execute(select(Email).where(Email.id == task.email_id))
     email = email_result.scalars().first()
 
@@ -132,9 +132,9 @@ async def get_task_detail(task_id: int, db: AsyncSession = Depends(get_db)):
 
 @router.post("/{task_id}/cancel")
 async def cancel_task(task_id: int, db: AsyncSession = Depends(get_db), current_user=Depends(get_current_user)):
-    from models.orm_models import Schedule, Notification
-    from services.google_calendar_service import delete_calendar_event
-    from services.notification_service import send_completion_email
+    from AI_Executive_Secretary.backend.models.orm_models import Schedule, Notification
+    from AI_Executive_Secretary.backend.services.google_calendar_service import delete_calendar_event
+    from AI_Executive_Secretary.backend.services.notification_service import send_completion_email
 
     result = await db.execute(select(Task).where(Task.id == task_id))
     task = result.scalars().first()
@@ -153,7 +153,7 @@ async def cancel_task(task_id: int, db: AsyncSession = Depends(get_db), current_
         await db.delete(schedule)
         await db.commit()
 
-    from models.orm_models import Email
+    from AI_Executive_Secretary.backend.models.orm_models import Email
     email_result = await db.execute(select(Email).where(Email.id == task.email_id))
     email_record = email_result.scalars().first()
 
@@ -191,7 +191,7 @@ async def get_audit_logs(
     db: AsyncSession = Depends(get_db), 
     current_user=Depends(get_current_user)
 ):
-    from services.audit_service import AuditLog
+    from AI_Executive_Secretary.backend.services.audit_service import AuditLog
     result = await db.execute(
         select(AuditLog).order_by(AuditLog.created_at.desc()).limit(100)
     )

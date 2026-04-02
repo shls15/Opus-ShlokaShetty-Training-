@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from models.orm_models import Schedule, UserSettings
+from AI_Executive_Secretary.backend.models.orm_models import Schedule, UserSettings
 import holidays
 
 async def get_user_settings(db: AsyncSession, user_id: int = None):

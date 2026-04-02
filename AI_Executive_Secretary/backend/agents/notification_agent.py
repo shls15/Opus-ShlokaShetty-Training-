@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from models.orm_models import Task, Email, Notification
-from services.notification_service import send_completion_email
+from AI_Executive_Secretary.backend.models.orm_models import Task, Email, Notification
+from AI_Executive_Secretary.backend.services.notification_service import send_completion_email
 from datetime import datetime
 
 async def run_notification_agent(task_id: int, db: AsyncSession):

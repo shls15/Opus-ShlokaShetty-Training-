@@ -1,8 +1,8 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from models.orm_models import Task, Schedule, Email
-from services.calendar_service import find_free_slot
-from services.google_calendar_service import create_calendar_event
+from AI_Executive_Secretary.backend.models.orm_models import Task, Schedule, Email
+from AI_Executive_Secretary.backend.services.calendar_service import find_free_slot
+from AI_Executive_Secretary.backend.services.google_calendar_service import create_calendar_event
 from datetime import datetime, timedelta
 
 async def run_scheduler_agent(task_id: int, db: AsyncSession):
@@ -133,7 +133,7 @@ async def suggest_alternate_slots(task_id: int, db: AsyncSession):
     if not task:
         return
 
-    from models.orm_models import Email
+    from AI_Executive_Secretary.backend.models.orm_models import Email
     email_result = await db.execute(select(Email).where(Email.id == task.email_id))
     email_record = email_result.scalars().first()
     if not email_record:

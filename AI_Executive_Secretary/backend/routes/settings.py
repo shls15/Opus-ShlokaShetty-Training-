@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from models.database import get_db
-from models.orm_models import UserSettings, User
-from models.schemas import UserSettingsCreate, UserSettingsOut
+from AI_Executive_Secretary.backend.models.database import get_db
+from AI_Executive_Secretary.backend.models.orm_models import UserSettings, User
+from AI_Executive_Secretary.backend.models.schemas import UserSettingsCreate, UserSettingsOut
 from jose import jwt, JWTError
 from fastapi.security import OAuth2PasswordBearer
 from dotenv import load_dotenv

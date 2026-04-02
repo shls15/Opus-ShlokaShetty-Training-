@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, BackgroundTasks
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from models.database import get_db
-from models.orm_models import Email, Attachment
-from models.schemas import EmailIngest, EmailOut, AttachmentOut
-from agents.email_agent import run_email_agent
-from services.email_service import fetch_unread_emails
+from AI_Executive_Secretary.backend.models.database import get_db
+from AI_Executive_Secretary.backend.models.orm_models import Email, Attachment
+from AI_Executive_Secretary.backend.models.schemas import EmailIngest, EmailOut, AttachmentOut
+from AI_Executive_Secretary.backend.agents.email_agent import run_email_agent
+from AI_Executive_Secretary.backend.services.email_service import fetch_unread_emails
 from typing import List
 import base64
 from fastapi.responses import Response

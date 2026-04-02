@@ -1,9 +1,10 @@
+from AI_Executive_Secretary.backend.routes import auth, emails, schedules, settings
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from models.database import engine, Base
-from routes import emails, tasks, schedules, auth, settings
-from services.poller_service import start_scheduler, stop_scheduler
-from services.reminder_service import send_pending_reminders
+from AI_Executive_Secretary.backend.models.database import engine, Base
+from AI_Executive_Secretary.backend.routes import tasks
+from AI_Executive_Secretary.backend.services.poller_service import start_scheduler, stop_scheduler
+from AI_Executive_Secretary.backend.services.reminder_service import send_pending_reminders
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 import logging
 scheduler = AsyncIOScheduler()

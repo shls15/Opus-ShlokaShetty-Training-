@@ -1,5 +1,5 @@
-from models.database import AsyncSessionLocal
-from models.orm_models import Task, Email
+from AI_Executive_Secretary.backend.models.database import AsyncSessionLocal
+from AI_Executive_Secretary.backend.models.orm_models import Task, Email
 from sqlalchemy import select
 from datetime import datetime, timedelta
 import smtplib, os

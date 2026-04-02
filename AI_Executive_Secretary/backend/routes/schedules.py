@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from models.database import get_db
-from models.orm_models import Schedule
-from models.schemas import ScheduleOut
-from agents.scheduler_agent import run_scheduler_agent
+from AI_Executive_Secretary.backend.models.database import get_db
+from AI_Executive_Secretary.backend.models.orm_models import Schedule
+from AI_Executive_Secretary.backend.models.schemas import ScheduleOut
+from AI_Executive_Secretary.backend.agents.scheduler_agent import run_scheduler_agent
 from typing import List
 
 router = APIRouter()

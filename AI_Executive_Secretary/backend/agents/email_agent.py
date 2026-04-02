@@ -1,8 +1,8 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from models.orm_models import Email, Task, Attachment
-from models.schemas import PriorityEnum
-from services.ai_service import process_email
+from AI_Executive_Secretary.backend.models.orm_models import Email, Task, Attachment
+from AI_Executive_Secretary.backend.models.schemas import PriorityEnum
+from AI_Executive_Secretary.backend.services.ai_service import process_email
 from datetime import datetime
 
 async def run_email_agent(sender: str, subject: str, body: str, db: AsyncSession, attachments: list = None, timezone: str = None):

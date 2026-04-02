@@ -1,6 +1,6 @@
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from models.database import AsyncSessionLocal
-from agents.email_agent import run_email_agent
+from AI_Executive_Secretary.backend.models.database import AsyncSessionLocal
+from AI_Executive_Secretary.backend.agents.email_agent import run_email_agent
 import asyncio
 import logging
 from concurrent.futures import ThreadPoolExecutor
@@ -12,7 +12,7 @@ executor = ThreadPoolExecutor(max_workers=1)
 async def poll_and_process():
     logger.info("Auto-polling Gmail...")
     try:
-        from services.email_service import fetch_unread_emails
+        from AI_Executive_Secretary.backend.services.email_service import fetch_unread_emails
         loop = asyncio.get_event_loop()
         emails = await asyncio.wait_for(
             loop.run_in_executor(executor, fetch_unread_emails),

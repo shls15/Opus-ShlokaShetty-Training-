@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, Text, DateTime, Boolean, Foreign
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import enum
-from models.database import Base
+from AI_Executive_Secretary.backend.models.database import Base
 
 
 class PriorityEnum(str, enum.Enum):
