@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-primary: #F9F8F6;
+  --bg-secondary: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F3F2EF;
+  --border: #E8E6E1;
+  --border-light: #F0EEE9;
+  --gold: #9D7B2F;
+  --gold-light: #B8962E;
+  --gold-dim: rgba(157, 123, 47, 0.08);
+  --text-primary: #1A1814;
+  --text-secondary: #5C5750;
+  --text-muted: #9C9589;
+  --green: #1A7F5A;
+  --green-dim: rgba(26, 127, 90, 0.08);
+  --red: #C0392B;
+  --red-dim: rgba(192, 57, 43, 0.08);
+  --blue: #1A5FA8;
+  --blue-dim: rgba(26, 95, 168, 0.08);
+  --amber: #B7660A;
+  --amber-dim: rgba(183, 102, 10, 0.08);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.04);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0a0c10;
+  --bg-secondary: #0f1218;
+  --bg-card: #13161d;
+  --bg-hover: #1a1e27;
+  --border: #1e2330;
+  --border-light: #252b3a;
+  --gold: #c9a84c;
+  --gold-light: #e8c96d;
+  --gold-dim: rgba(201, 168, 76, 0.15);
+  --text-primary: #e8eaf0;
+  --text-secondary: #8892a4;
+  --text-muted: #4a5568;
+  --green: #2dd4a0;
+  --green-dim: rgba(45, 212, 160, 0.12);
+  --red: #f06a6a;
+  --red-dim: rgba(240, 106, 106, 0.12);
+  --blue: #5b9bd5;
+  --blue-dim: rgba(91, 155, 213, 0.12);
+  --amber: #f0a050;
+  --amber-dim: rgba(240, 160, 80, 0.12);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 16px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.85)} }
+
+@media (max-width: 768px) {
+  html { font-size: 14px; }
+}

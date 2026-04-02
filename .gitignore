@@ -1,0 +1,33 @@
+# --- Secrets & API Keys (CRITICAL) ---
+.env
+backend/.env
+credentials.json
+backend/credentials.json
+token.pickle
+backend/token.pickle
+token.json
+backend/token.json
+
+# --- Python ---
+__pycache__/
+backend/__pycache__/
+*.py[cod]
+*.pkl
+*.pickle
+
+# --- Databases ---
+*.db
+*.sqlite3
+backend/*.db
+
+# --- Frontend Fallback ---
+node_modules/
+frontend/node_modules/
+build/
+frontend/build/
+
+# --- IDE & OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
